@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Randstad Digital Maturity Assessment",
+    "slug": "randstad-digital-maturity-assessment",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/randstaddigital_logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/rd-splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/randstaddigital_logo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.sudeephazra.randstaddigitalmaturityassessment"
+    },
+    "web": {
+      "favicon": "./assets/favicon-rd.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3864cbf4-9fd8-4409-add9-280b69edd3a5"
+      }
+    }
+  }
+}

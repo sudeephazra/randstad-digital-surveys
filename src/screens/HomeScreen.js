@@ -5,7 +5,7 @@ import CardView from '../components/CardView';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import surveyList from '../config/config.json';
+import SurveyList from '../config/SurveyList';
 
 const Stack = createStackNavigator();
 
@@ -20,26 +20,24 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
 
       <View style={{ height: '30%', alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={styles.title}>Randstad Digital Maturity Assessments</Text>
+        <Text style={styles.title}>Randstad Maturity Surveys</Text>
       </View>
 
       <ScrollView style={{ height: '70%' }} contentContainerStyle={styles.stackContainerStyle}>
         <View>
-
-          <CardView
-            imageSource={require('../../assets/de_icon.png')}
-            title="Maturity Assessment Wand"
-            description="A survey aimed at understanding the landscape of data infrastructure, pipelines, and workflows within organizations, assessing capabilities, challenges, and innovations in data engineering processes."
-            onPress={() => handleCardPress('https://docs.google.com/forms/d/e/1FAIpQLSdTD9FEHVS6b9Yl9mwNyFOcGhkra_b8nkaG4-ubjkZXE3QwZA/viewform?usp=sf_link')}
-          />
-
-          <CardView
-            imageSource={require('../../assets/ai_icon.png')}
-            title="AI Maturity Assessment Wand"
-            description="A survey designed to gauge organizational readiness, adoption, and evolution across various AI capabilities, from basic awareness to advanced implementation and optimization."
-            onPress={() => handleCardPress('https://docs.google.com/forms/d/e/1FAIpQLSeET33ukZAQA6lqSO1yWPHcSrVlZO_7jfqgLerP6POj50HuUA/viewform?usp=sf_link')}
-          />
-
+          {
+            SurveyList.map((survey) => {
+              return (
+                <CardView
+                  key={survey.id}
+                  imageSource={survey.imageSource}
+                  title={survey.title}
+                  description={survey.description}
+                  onPress={() => handleCardPress(`${survey.url}`)}
+                />
+              )
+            })
+          }
         </View>
       </ScrollView>
       <Footer />
@@ -65,10 +63,10 @@ const styles = StyleSheet.create({
     color: '#f0f0f0',
   },
   stackContainerStyle: {
-    flexGrow: 1, 
-    alignContent: 'center', 
-    justifyContent: 'center', 
-    paddingBottom: 50 
+    flexGrow: 1,
+    alignContent: 'center',
+    justifyContent: 'center',
+    paddingBottom: 50
   },
 });
 

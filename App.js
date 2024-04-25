@@ -10,11 +10,11 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName="HomeScreen" screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="WebView" component={WebViewScreen} />
-    </Stack.Navigator>
-  </NavigationContainer>
+      <Stack.Navigator initialRouteName="HomeScreen" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="WebView" component={WebViewScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

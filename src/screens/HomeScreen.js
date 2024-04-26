@@ -27,7 +27,7 @@ const HomeScreen = () => {
         <View>
           {
             SurveyList.map((survey) => {
-              return (
+              return survey.active ? (
                 <CardView
                   key={survey.id}
                   imageSource={survey.imageSource}
@@ -35,7 +35,7 @@ const HomeScreen = () => {
                   description={survey.description}
                   onPress={() => handleCardPress(`${survey.url}`)}
                 />
-              )
+              ) : null
             })
           }
         </View>
